@@ -1,0 +1,28 @@
+# filepath: .github/workflows/azure-webapp.yml
+name: Deploy to Azure Web App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: bfdoge
+          publish-profile: <publishData><publishProfile profileName="bfdoge - Web Deploy" publishMethod="MSDeploy" publishUrl="bfdoge-f3a2cwccakd3brg6.scm.canadacentral-01.azurewebsites.net:443" msdeploySite="bfdoge" userName="$bfdoge" userPWD="EjKi0S87Jy4QTadDg9Z2bauh9bpFank36L2dc686kHYqC3dwEJHNdcTwvEdx" destinationAppUrl="https://bfdoge-f3a2cwccakd3brg6.canadacentral-01.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="bfdoge - FTP" publishMethod="FTP" publishUrl="ftps://waws-prod-yt1-089.ftp.azurewebsites.windows.net/site/wwwroot" ftpPassiveMode="True" userName="REDACTED" userPWD="REDACTED" destinationAppUrl="https://bfdoge-f3a2cwccakd3brg6.canadacentral-01.azurewebsites.net" SQLServerDBConnectionString="REDACTED" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="bfdoge - Zip Deploy" publishMethod="ZipDeploy" publishUrl="bfdoge-f3a2cwccakd3brg6.scm.canadacentral-01.azurewebsites.net:443" userName="$bfdoge" userPWD="EjKi0S87Jy4QTadDg9Z2bauh9bpFank36L2dc686kHYqC3dwEJHNdcTwvEdx" destinationAppUrl="https://bfdoge-f3a2cwccakd3brg6.canadacentral-01.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile></publishData>

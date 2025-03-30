@@ -1,3 +1,2 @@
 BFDOGE
-
-A running Benford's Law Distribution and Analysis of the data published by [DOGE|https://www.doge.gov/].
+A running Benford's Law Distribution and Analysis of the data published by [DOGE](https://www.doge.gov/).
